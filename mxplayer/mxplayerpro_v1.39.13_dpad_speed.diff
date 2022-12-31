@@ -1,0 +1,140 @@
+diff --git a/com/mxtech/videoplayer/ActivityScreen.smali b/com/mxtech/videoplayer/ActivityScreen.smali
+index 066ff65..8c778b4 100755
+--- a/com/mxtech/videoplayer/ActivityScreen.smali
++++ b/com/mxtech/videoplayer/ActivityScreen.smali
+@@ -21432,86 +21432,88 @@
+     const/4 v7, 0x1
+ 
+     const/16 v2, 0x1f4
+ 
+     const/4 v7, 0x3
+ 
+     const/16 v3, 0x13
+ 
+     if-eqz p3, :cond_4
+ 
+     const/4 v7, 0x0
+ 
+     invoke-virtual {p3}, Landroid/view/KeyEvent;->isCtrlPressed()Z
+ 
+     move-result v5
+ 
+     const/4 v7, 0x2
+ 
+     if-eqz v5, :cond_4
+ 
++    :goto_speed
++
+     const/4 v7, 0x3
+ 
+     iget-object p1, p0, Lcom/mxtech/videoplayer/ActivityScreen;->P:Lc51;
+ 
+     const/4 v7, 0x6
+ 
+     iget-object p1, p1, Lc51;->F:Lxr0;
+ 
+     if-eqz p1, :cond_3
+ 
+     invoke-virtual {p1}, Lxr0;->B()I
+ 
+     move-result p3
+ 
+     const/4 v7, 0x4
+ 
+     and-int/lit8 p3, p3, 0x8
+ 
+     const/4 v7, 0x2
+ 
+     if-eqz p3, :cond_3
+ 
+     const/4 v7, 0x4
+ 
+     invoke-virtual {p1}, Lxr0;->t()D
+ 
+     move-result-wide v0
+ 
+     const/4 v7, 0x0
+ 
+     if-ne p2, v3, :cond_2
+ 
+     const/4 v7, 0x1
+ 
+-    const-wide p1, 0x3fa999999999999aL    # 0.05
++    const-wide p1, 0x3fd0000000000000L    # 0.25
+ 
+-    const-wide p1, 0x3fa999999999999aL    # 0.05
++    const-wide p1, 0x3fd0000000000000L    # 0.25
+ 
+     goto :goto_0
+ 
+     :cond_2
+     const/4 v7, 0x0
+ 
+-    const-wide p1, -0x4056666666666666L    # -0.05
++    const-wide p1, 0xbfd0000000000000L    # -0.25
+ 
+-    const-wide p1, -0x4056666666666666L    # -0.05
++    const-wide p1, 0xbfd0000000000000L    # -0.25
+ 
+     :goto_0
+     add-double/2addr v0, p1
+ 
+     const/4 v7, 0x6
+ 
+     invoke-static {v0, v1}, Lue2;->c(D)D
+ 
+     move-result-wide p1
+ 
+     const/4 v7, 0x1
+ 
+     iget-object p3, p0, Lcom/mxtech/videoplayer/ActivityScreen;->P:Lc51;
+ 
+     const/4 v7, 0x1
+ 
+     invoke-virtual {p3}, Lc51;->W()D
+ 
+     move-result-wide v0
+ 
+@@ -21621,41 +21623,41 @@
+     if-nez v6, :cond_14
+ 
+     const/4 v7, 0x0
+ 
+     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+ 
+     move-result-object p1
+ 
+     const/4 v7, 0x6
+ 
+     const-string p3, "ppuns__.ytadkoedw"
+ 
+     const-string p3, "keys.dpad_up_down"
+ 
+     const/4 v7, 0x1
+ 
+     invoke-virtual {p1, p3, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+ 
+     move-result p1
+ 
+-    if-ne p1, v4, :cond_9
++    if-ne p1, v4, :goto_speed
+ 
+     iget-object p1, p0, Lcom/mxtech/videoplayer/ActivityScreen;->P:Lc51;
+ 
+     const/4 v7, 0x4
+ 
+     if-ne p2, v3, :cond_8
+ 
+     const/4 v7, 0x4
+ 
+     invoke-virtual {p1, v1}, Lc51;->B0(Z)Landroid/net/Uri;
+ 
+     move-result-object p1
+ 
+     const/4 v7, 0x2
+ 
+     goto :goto_3
+ 
+     :cond_8
+     invoke-virtual {p1}, Lc51;->r0()Landroid/net/Uri;
+ 
